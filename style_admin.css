@@ -1,0 +1,60 @@
+/* Table styling */
+table {
+    width: 100%;
+    margin-bottom: 40px;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background: #2c3e50;
+    color: #fff;
+}
+
+/* Button styling */
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 4px;
+    margin: 2px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success {
+    background-color: #28a745; /* Green for approval */
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Red for deny/delete */
+}
+
+.btn-warning {
+    background-color: #ffc107; /* Orange for caution (Mark as Done) */
+    color: #333;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Logo styling */
+.logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 350px; /* Adjust width as needed */
+    height: auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
