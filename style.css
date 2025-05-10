@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fdf6e3; /* Cream background */
+    background-color: #9b9076; /* Cream background */
     color: #333; /* Neutral dark gray for text */
     padding: 20px;
     margin: 0;
@@ -53,12 +53,14 @@ h3 {
 
 /* Links */
 a {
-    color: #d4af37; /* Gold for links */
+    color:rgb(0, 63, 238); /* Gold for links */
     text-decoration: none;
     transition: color 0.3s ease;
+    font-weight: 600;
+
 }
 a:hover {
-    color: #b8860b; /* Darker gold on hover */
+    color:rgb(250, 113, 0); /* Darker gold on hover */
     text-decoration: underline;
 }
 
