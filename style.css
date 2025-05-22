@@ -6,21 +6,23 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fdf6e3; /* Cream background */
-    color: #333; /* Neutral dark gray for text */
-    padding: 20px;
+    background: #fcf5e6;
+    min-height: 100vh;
     margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 /* Main Container */
 .container {
     max-width: 900px;
-    margin: 30px auto;
-    background: #ffffff; /* White background for content */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    background: #fff;
+    padding: 32px 32px 40px 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
     opacity: 0; /* Hidden initially for fade-in effect */
 }
 
@@ -37,7 +39,8 @@ body {
 
 /* Headings */
 h2, h3 {
-    margin-bottom: 20px;
+    text-align: center;
+    margin: 18px 0 12px 0;
     color: #333; /* Neutral dark gray for headings */
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -53,12 +56,14 @@ h3 {
 
 /* Links */
 a {
-    color: #d4af37; /* Gold for links */
+    color:rgb(0, 63, 238); /* Gold for links */
     text-decoration: none;
     transition: color 0.3s ease;
+    font-weight: 600;
+
 }
 a:hover {
-    color: #b8860b; /* Darker gold on hover */
+    color:rgb(250, 113, 0); /* Darker gold on hover */
     text-decoration: underline;
 }
 
@@ -102,13 +107,14 @@ input[type="submit"]:hover {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
     background-color: #ffffff; /* White background for tables */
 }
 th, td {
-    padding: 12px;
-    border: 1px solid #ddd; /* Light gray border */
+    padding: 10px 6px;
+    font-size: 1em;
     text-align: left;
+    border: 1px solid #ddd; /* Light gray border */
 }
 th {
     background-color: #333; /* Black for table headers */
@@ -124,14 +130,16 @@ tr:hover {
 
 /* Toast Message Styling */
 .message {
-    opacity: 0;
+    font-size: 1em;
+    margin: 12px 0;
+    padding: 10px 12px;
+    text-align: center;
     transition: opacity 0.5s ease-in-out;
     position: fixed;
     top: 20px;
     right: 20px;
     background-color: #d4af37; /* Gold for success messages */
     color: #333; /* Dark text for contrast */
-    padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     z-index: 1000;
@@ -142,14 +150,15 @@ tr:hover {
 
 /* Buttons */
 .btn {
-    display: inline-block;
+    display: block;
+    width: 100%;
+    margin: 10px 0;
     padding: 10px 20px;
-    font-size: 14px;
+    font-size: 1.1em;
     text-align: center;
     text-decoration: none;
     color: #fff;
     border-radius: 5px;
-    margin: 5px;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .btn-success {
@@ -167,17 +176,42 @@ tr:hover {
     transform: scale(1.02);
 }
 
+.btn-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+}
+@media (max-width: 600px) {
+    .btn-group {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
 /* Logo styling */
 .logo {
     display: block;
-    margin: 0 auto;
-    max-width: 350px; /* Adjust width as needed */
+    margin: 0 auto 18px auto;
+    max-width: 320px; /* Adjust width as needed */
     height: auto;
 }
 
 .header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
+}
+
+/* Logout link styling */
+.logout-link {
+    color: #b22222 !important; /* Firebrick red */
+    font-weight: bold;
+    text-decoration: none;
+}
+.logout-link:hover,
+.logout-link:focus {
+    color: #ff4444 !important; /* Brighter red on hover */
+    text-decoration: underline;
 }
 
 /* Responsive Design */

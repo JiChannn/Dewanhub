@@ -14,8 +14,10 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>User Dashboard - DewanHub</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_mobile.css" media="only screen and (max-width: 600px)">
 </head>
 <body>
 
@@ -29,7 +31,7 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
     <?php endif; ?>
     <p>
         <a href="create_event.php">Submit New Event</a> |
-        <a href="logout.php">Logout</a>
+        <a href="logout.php" class="logout-link">Logout</a>
         <?php if ($role === 'admin'): ?>
             | <a href="admin_dashboard.php">Go to Admin Dashboard</a>
         <?php endif; ?>

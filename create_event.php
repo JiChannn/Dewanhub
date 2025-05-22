@@ -26,8 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Add Event - DewanHub</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_mobile.css" media="only screen and (max-width: 600px)">
 </head>
 <body>
 
@@ -35,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container fade-in">
 
         <div class="header">
-                <img src="banner.png" alt="College Logo" class="logo">
+            <img src="banner.png" alt="College Logo" class="logo">
         </div>
 
         <h2>Submit a New Event</h2>
@@ -53,6 +55,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
         
         <p><a href="index.php">Back to Dashboard</a></p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Event Title</th>
+              <th>Description</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            // Fetch and display user's events
+            $user_id = $_SESSION['user_id'];
+            $stmt = $conn->prepare("SELECT title, description, event_date, status FROM events WHERE user_id = ?");
+            $stmt->bind_param("i", $user_id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . htmlspecialchars($row['title']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['description']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['event_date']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['status']) . "</td>";
+                echo "</tr>";
+            }
+
+            $stmt->close();
+            ?>
+          </tbody>
+        </table>
     </div>
 </body>
 </html>

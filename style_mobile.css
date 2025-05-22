@@ -1,0 +1,91 @@
+/* Mobile-specific styles for DewanHub */
+
+/* Container: centered, with padding and max width */
+.container {
+    width: 95vw;
+    max-width: 420px;
+    margin: 20px auto;
+    padding: 18px 10px 24px 10px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+}
+
+/* Logo: smaller and centered */
+img.logo {
+    display: block;
+    margin: 0 auto 10px auto;
+    max-width: 170px;
+    height: auto;
+}
+
+/* Header and text */
+.header {
+    text-align: center;
+    margin-bottom: 8px;
+}
+h2, h3 {
+    font-size: 1.1em;
+    margin: 12px 0 8px 0;
+    text-align: center;
+}
+label, input, .message, .btn {
+    font-size: 1em;
+}
+
+/* Form fields: full width, more spacing */
+input[type="text"], input[type="password"], input[type="submit"] {
+    width: 100%;
+    font-size: 1em;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+}
+
+/* Table: scrollable and readable */
+table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    font-size: 0.98em;
+    margin-bottom: 18px;
+}
+th, td {
+    padding: 8px 4px;
+    font-size: 0.98em;
+    text-align: left;
+    min-width: 90px;
+}
+
+/* Responsive buttons: stack vertically */
+.btn {
+    display: block;
+    width: 100%;
+    margin: 7px 0;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* Message styling */
+.message {
+    font-size: 1em;
+    margin: 10px 0;
+    padding: 8px 10px;
+    text-align: center;
+}
+
+/* Hide box shadow on body background for less clutter */
+body {
+    background: #fcf5e6 !important;
+}
+
+/* Logout link styling */
+.logout-link {
+    color: #b22222 !important; /* Firebrick red */
+    font-weight: bold;
+    text-decoration: none;
+}
+.logout-link:hover,
+.logout-link:focus {
+    color: #ff4444 !important; /* Brighter red on hover */
+    text-decoration: underline;
+}

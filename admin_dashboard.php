@@ -9,8 +9,10 @@ checkUserRole('admin');
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Admin Dashboard - DewanHub</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style_mobile.css" media="only screen and (max-width: 600px)">
   <link rel="stylesheet" href="style_admin.css"> <!-- CSS khas untuk admin -->
 </head>
 <body>
@@ -23,7 +25,7 @@ checkUserRole('admin');
   <h2>Admin Dashboard - DewanHub</h2>
   <p>
     <!-- Link untuk logout dan pergi ke dashboard utama -->
-    <a href="logout.php">Logout</a> |
+    <a href="logout.php" class="logout-link">Logout</a> |
     <a href="index.php">Go to Main Dashboard</a>
   </p>
 
@@ -112,10 +114,12 @@ checkUserRole('admin');
                       <td>";
               if ($row['status'] === 'approved') {
                   // Button untuk mark event sebagai selesai
-                  echo "<a class='btn btn-warning' href='mark_complete.php?id={$row['id']}'>Mark as Done</a>";
+                  echo "<div class='btn-group'>
+                          <a class='btn btn-warning' href='mark_complete.php?id={$row['id']}'>Mark as Done</a>
+                          <a class='btn btn-danger' href='delete_event.php?id={$row['id']}' onclick=\"return confirm('Delete this event?')\">Delete</a>
+                        </div>";
               }
               // Button untuk delete event
-              echo "<a class='btn btn-danger' href='delete_event.php?id={$row['id']}' onclick=\"return confirm('Delete this event?')\">Delete</a>";
               echo "  </td>
                     </tr>";
           }

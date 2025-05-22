@@ -33,8 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sign Up - DewanHub</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_mobile.css" media="only screen and (max-width: 600px)">
     <style>
         /* Logo styling */
     .logo {
@@ -56,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
     <div class="container fade-in">
         <div class="header">
-                <img src="banner.png" alt="College Logo" class="logo">
+            <img src="banner.png" alt="College Logo" class="logo">
         </div>
         <h2>Create a DewanHub Account</h2>
         <?php if (!empty($error)) echo "<p class='error'>" . htmlspecialchars($error) . "</p>"; ?>
@@ -71,5 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         </form>
         <p>Already have an account? <a href="login.php">Login here</a></p>
     </div>
+ 
 </body>
 </html>
