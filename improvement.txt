@@ -1,0 +1,9 @@
++++++ AS OF 3 JULY 2025 +++++
+
+admin_dashboard.php  : Buang Approve/Deny by Admin, Add option to make it into document and to print out, For Approved Events Change it to Event Details 
+index.php : Approved events change to Current Events 
+create_event.php : add option for TIME in the DATE, Shows the time where someone already booked
+
+
+SYSTEM : Add option where it tracks TIME and DATE, Convert to pdf, LOCK The event booking IF SAME DATE and SAME TIMELINE
+________________________________

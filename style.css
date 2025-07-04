@@ -1,73 +1,53 @@
-/* Reset & Base Styles */
+/* General Reset */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #9b9076; /* Cream background */
-    color: #333; /* Neutral dark gray for text */
-    padding: 20px;
-    margin: 0;
+    background: #eaf6fb;
+    min-height: 100vh;
     font-family: 'Segoe UI', Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    color: #222;
 }
 
-/* Main Container */
 .container {
-    max-width: 900px;
-    margin: 40px auto;
     background: #fff;
-    padding: 32px 32px 40px 32px;
-    border-radius: 12px;
+    border-radius: 16px;
     box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-    opacity: 0; /* Hidden initially for fade-in effect */
-}
-
-/* Fade-In Animation */
-.fade-in {
-    animation: fadeIn 1s forwards;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+    margin: 40px auto;
+    padding: 32px 32px 40px 32px;
+    max-width: 540px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #3498db;
 }
 
 /* Headings */
 h2, h3 {
     text-align: center;
     margin: 18px 0 12px 0;
-    color: #333; /* Neutral dark gray for headings */
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    color: #222;
+    font-weight: bold;
 }
+
 h2 {
     font-size: 28px;
-    border-bottom: 2px solid #333; /* Black underline for h2 */
+    border-bottom: 2px solid #222;
     padding-bottom: 5px;
 }
+
 h3 {
     font-size: 22px;
 }
 
 /* Links */
 a {
-    color:rgb(0, 63, 238); /* Gold for links */
+    color: #2176ae;
     text-decoration: none;
-    transition: color 0.3s ease;
-    font-weight: 600;
-
 }
-a:hover {
-    color:rgb(250, 113, 0); /* Darker gold on hover */
-    text-decoration: underline;
-}
+a:hover { text-decoration: underline; }
 
 /* Forms */
 form {
@@ -76,58 +56,48 @@ form {
     gap: 15px;
 }
 label {
-    font-weight: 600;
-    color: #333; /* Neutral dark gray for labels */
+    display: block;
+    margin: 12px 0 4px 0;
+    font-weight: 500;
 }
 input[type="text"],
 input[type="password"],
 input[type="date"],
+input[type="datetime-local"],
 textarea {
-    padding: 10px;
-    border: 1px solid #ccc; /* Light gray border */
-    border-radius: 5px;
-    font-size: 16px;
     width: 100%;
-    background-color: #fdf6e3; /* Cream background for inputs */
+    font-size: 1.1em;
+    margin-bottom: 16px;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fdf6e3;
+    transition: border 0.2s;
 }
-input[type="submit"] {
+input:focus,
+textarea:focus {
+    border: 1.5px solid #3498db;
+    outline: none;
+}
+input[type="submit"], button, .btn, .btn-user, .btn-success {
     padding: 12px 20px;
     border: none;
-    background-color: #333; /* Black for buttons */
+    background-color: #2176ae;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-bottom: 8px;
 }
-input[type="submit"]:hover {
-    background-color: #555; /* Darker black on hover */
+input[type="submit"]:hover,
+button:hover,
+.btn:hover,
+.btn-user:hover,
+.btn-success:hover {
+    background-color: #3498db;
     transform: scale(1.02);
-}
-
-/* Tables */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 24px;
-    background-color: #ffffff; /* White background for tables */
-}
-th, td {
-    padding: 10px 6px;
-    font-size: 1em;
-    text-align: left;
-    border: 1px solid #ddd; /* Light gray border */
-}
-th {
-    background-color: #333; /* Black for table headers */
-    color: #fff;
-    text-transform: uppercase;
-}
-tr:nth-child(even) {
-    background-color: #f9f9f9; /* Light cream for alternating rows */
-}
-tr:hover {
-    background-color: #f5f5f5; /* Slightly darker cream on hover */
 }
 
 /* Toast Message Styling */
@@ -136,66 +106,44 @@ tr:hover {
     margin: 12px 0;
     padding: 10px 12px;
     text-align: center;
-    transition: opacity 0.5s ease-in-out;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #d4af37; /* Gold for success messages */
-    color: #333; /* Dark text for contrast */
     border-radius: 5px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-}
-.message.show {
-    opacity: 1;
+    background: #f8f8f8;
+    color: #b22222;
 }
 
 /* Buttons */
 .btn {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px 20px;
-    font-size: 1.1em;
-    text-align: center;
+    display: inline-block;
+    padding: 10px 18px;
+    font-size: 1em;
+    border-radius: 4px;
     text-decoration: none;
-    color: #fff;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 4px 0;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
 }
-.btn-success {
-    background-color: #333; /* Black for success buttons */
-}
-.btn-danger {
-    background-color: #b22222; /* Firebrick red for danger buttons */
-}
-.btn-warning {
-    background-color: #d4af37; /* Gold for warning buttons */
-    color: #333;
-}
-.btn:hover {
-    opacity: 0.9;
-    transform: scale(1.02);
-}
+.btn-info { background: #3498db; color: #fff; }
+.btn-secondary { background: #888; color: #fff; }
+.btn-warning { background: #f1c40f; color: #333; }
+.btn-danger { background: #b22222; color: #fff; }
+.btn-success { background: #2176ae; ; color: #fff; }
+.btn:hover, button:hover { opacity: 0.92; }
 
 .btn-group {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-wrap: wrap;
     gap: 8px;
-}
-@media (max-width: 600px) {
-    .btn-group {
-        flex-direction: column;
-        gap: 0;
-    }
+    justify-content: center;
 }
 
 /* Logo styling */
 .logo {
     display: block;
     margin: 0 auto 18px auto;
-    max-width: 320px; /* Adjust width as needed */
+    max-width: 220px;
+    width: 100%;
     height: auto;
 }
 
@@ -206,33 +154,111 @@ tr:hover {
 
 /* Logout link styling */
 .logout-link {
-    color: #b22222 !important; /* Firebrick red */
+    color: #b22222 !important;
     font-weight: bold;
     text-decoration: none;
 }
 .logout-link:hover,
 .logout-link:focus {
-    color: #ff4444 !important; /* Brighter red on hover */
+    color: #ff4444 !important;
     text-decoration: underline;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    background: #fff;
+    border: 1px solid #bbb;
+}
+th, td {
+    padding: 10px 6px;
+    font-size: 1em;
+    text-align: left;
+    border: 1px solid #aaa;
+    border-bottom: 1px solid #eee;
+}
+th {
+    background: #3498db;
+    color: #fff;
+    font-weight: bold;
+}
+tr:last-child td {
+    border-bottom: none;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 12px;
+        margin: 16px 2px;
     }
-
     table, th, td {
         font-size: 14px;
     }
-
-    .btn {
-        padding: 8px 16px;
-        font-size: 12px;
+    .btn, input[type="submit"], button {
+        padding: 10px 0;
+        font-size: 14px;
     }
-
     .logo {
         max-width: 200px;
     }
+    h2 { font-size: 20px; }
+    h3 { font-size: 16px; }
 }
 
+/* Small button-link style for navigation actions */
+.btn-link {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 0.98em;
+    font-weight: bold;
+    color: #2176ae;
+    background: #eaf6fb;
+    border: 1.2px solid #2176ae;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    vertical-align: middle;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.btn-link:hover, .btn-link:focus {
+    background: #2176ae;
+    color: #fff;
+    border-color: #2176ae;
+    text-decoration: none;
+}
+
+/* Coloured navigation links (not buttons) */
+.nav-link {
+    color: #2176ae;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0 2px;
+    transition: color 0.2s, text-decoration 0.2s;
+}
+.nav-link:hover,
+.nav-link:focus {
+    color: #12507b;
+    text-decoration: underline;
+}
+
+.nav-link-admin {
+    color: #b22222;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0 2px;
+    transition: color 0.2s, text-decoration 0.2s;
+}
+.nav-link-admin:hover,
+.nav-link-admin:focus {
+    color: #7a1010;
+    text-decoration: underline;
+}
+
+textarea {
+    resize: none;
+    min-height: 120px;
+}

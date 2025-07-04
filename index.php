@@ -5,10 +5,9 @@ include('config.php');
 checkLoggedIn();
 
 $username = $_SESSION['username'];
-$role = $_SESSION['role']; // Get the user's role
+$role = $_SESSION['role'];
 $message = isset($_GET['message']) ? $_GET['message'] : '';
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,95 +18,52 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style_mobile.css" media="only screen and (max-width: 600px)">
 </head>
-<body>
-
-<div class="container fade-in">
+<body class="user-dashboard">
+<div class="container fade-in user-dashboard">
     <div class="header">
         <img src="banner.png" alt="College Logo" class="logo">
     </div>
-    <h2>Welcome, <?php echo htmlspecialchars($username); ?>!</h2>
+    <h2 class="user-title">Welcome, <?php echo htmlspecialchars($username); ?>!</h2>
     <?php if ($message): ?>
         <p class="message"><?php echo htmlspecialchars($message); ?></p>
     <?php endif; ?>
     <p>
-        <a href="create_event.php">Submit New Event</a> |
-        <a href="logout.php" class="logout-link">Logout</a>
+        <a href="create_event.php" class="nav-link">Submit New Event |</a>
+        <a href="logout.php" class="nav-link-admin">Logout</a> 
         <?php if ($role === 'admin'): ?>
-            | <a href="admin_dashboard.php">Go to Admin Dashboard</a>
+        <a href="admin_dashboard.php" class="nav-link">| Go to Admin Dashboard</a>
         <?php endif; ?>
     </p>
-    
-    <!-- Section 1: All Approved Events (Visible to All Users) -->
-    <h3>Approved Events</h3>
+
+    <h3>Current Events</h3>
     <table>
         <thead>
             <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Date</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        
-        <tbody>
-
-            <?php
-            // Query to fetch all events with status 'approved'
-            // Removing the event_date condition so that both past and upcoming events are displayed
-            $sqlApproved = "SELECT * FROM events WHERE status = 'approved' AND deleted_at IS NULL ORDER BY event_date ASC";
-            $resultApproved = mysqli_query($conn, $sqlApproved);
-            if ($resultApproved && mysqli_num_rows($resultApproved) > 0) {
-                while ($row = mysqli_fetch_assoc($resultApproved)) {
-                    echo "<tr>
-                        <td>" . htmlspecialchars($row['title']) . "</td>
-                        <td>" . htmlspecialchars($row['description']) . "</td>
-                        <td>" . htmlspecialchars($row['event_date']) . "</td>
-                        <td>" . htmlspecialchars(ucfirst($row['status'])) . "</td>
-                    </tr>";
-                }
-            } else {
-                echo "<tr><td colspan='4'>No approved events found.</td></tr>";
-            }
-            ?>
-            
-        </tbody>
-    </table>
-    
-    <!-- Section 2: My Submitted Events -->
-    <h3>My Submitted Events</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Date</th>
-                <th>Status</th>
+                <th class="user-header">Title</th>
+                <th class="user-header">Description</th>
+                <th class="user-header">Start</th>
+                <th class="user-header">End</th>
             </tr>
         </thead>
         <tbody>
-
             <?php
-            $user_id = $_SESSION['user_id'];
-            $sqlMine = "SELECT * FROM events WHERE user_id = $user_id AND deleted_at IS NULL ORDER BY event_date DESC";
-            $resultMine = mysqli_query($conn, $sqlMine);
-            if ($resultMine && mysqli_num_rows($resultMine) > 0) {
-                while ($row = mysqli_fetch_assoc($resultMine)) {
+            $sql = "SELECT * FROM events WHERE status IN ('approved', 'completed') AND deleted_at IS NULL ORDER BY event_start DESC";
+            $result = mysqli_query($conn, $sql);
+            if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>
-                        <td>" . htmlspecialchars($row['title']) . "</td>
-                        <td>" . htmlspecialchars($row['description']) . "</td>
-                        <td>" . htmlspecialchars($row['event_date']) . "</td>
-                        <td>" . htmlspecialchars(ucfirst($row['status'])) . "</td>
+                        <td data-label='Title'>" . htmlspecialchars($row['title']) . "</td>
+                        <td data-label='Description'>" . htmlspecialchars($row['description']) . "</td>
+                        <td data-label='Start'>" . htmlspecialchars($row['event_start']) . "</td>
+                        <td data-label='End'>" . htmlspecialchars($row['event_end']) . "</td>
                     </tr>";
                 }
             } else {
-                echo "<tr><td colspan='4'>You haven't submitted any events yet.</td></tr>";
+                echo "<tr><td colspan='4'>No current events found.</td></tr>";
             }
             ?>
-            
         </tbody>
     </table>
 </div>
-
-<script src="script.js"></script>
 </body>
 </html>

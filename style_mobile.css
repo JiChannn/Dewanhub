@@ -1,91 +1,233 @@
-/* Mobile-specific styles for DewanHub */
+/* General Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* Container: centered, with padding and max width */
-.container {
-    width: 95vw;
-    max-width: 420px;
-    margin: 20px auto;
-    padding: 18px 10px 24px 10px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+body {
+    background: #eaf6fb;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #222;
 }
 
-/* Logo: smaller and centered */
-img.logo {
+.container {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    margin: 12px 4px;
+    padding: 12px 6px 18px 6px;
+    max-width: 99vw;
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #3498db;
+}
+
+/* Headings */
+h2, h3 {
+    text-align: center;
+    margin: 12px 0 8px 0;
+    color: #222;
+    font-weight: bold;
+}
+h2 {
+    font-size: 20px;
+    border-bottom: 2px solid #222;
+    padding-bottom: 4px;
+}
+h3 { font-size: 16px; }
+
+/* Links */
+a {
+    color: #2176ae;
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* Forms */
+form { display: flex; flex-direction: column; gap: 10px; }
+label {
     display: block;
-    margin: 0 auto 10px auto;
-    max-width: 170px;
+    margin: 8px 0 2px 0;
+    font-weight: 500;
+    font-size: 0.98em;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime-local"],
+textarea {
+    width: 100%;
+    font-size: 1em;
+    margin-bottom: 8px;
+    padding: 6px 7px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fdf6e3;
+    transition: border 0.2s;
+}
+
+input:focus,
+textarea:focus {
+    border: 1.5px solid #3498db;
+    outline: none;
+}
+
+input[type="submit"], button, .btn, .btn-user, .btn-success {
+    padding: 9px 0;
+    border: none;
+    background-color: #2176ae;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-bottom: 6px;
+}
+
+input[type="submit"]:hover,
+button:hover,
+.btn:hover,
+.btn-user:hover,
+.btn-success:hover {
+    background-color: #3498db;
+    transform: scale(1.01);
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    background: #fff;
+    border: 1px solid #bbb;
+}
+th, td {
+    padding: 7px 4px;
+    font-size: 0.97em;
+    text-align: left;
+    border: 1px solid #aaa;
+    border-bottom: 1px solid #eee;
+}
+th {
+    background: #3498db;
+    color: #fff;
+    font-weight: bold;
+}
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Toast Message Styling */
+.message {
+    font-size: 0.97em;
+    margin: 8px 0;
+    padding: 7px 8px;
+    text-align: center;
+    border-radius: 5px;
+    background: #f8f8f8;
+    color: #b22222;
+}
+
+/* Logo styling */
+.logo {
+    display: block;
+    margin: 0 auto 12px auto;
+    max-width: 200px;
+    width: 100%;
     height: auto;
 }
 
-/* Header and text */
-.header {
-    text-align: center;
-    margin-bottom: 8px;
-}
-h2, h3 {
-    font-size: 1.1em;
-    margin: 12px 0 8px 0;
-    text-align: center;
-}
-label, input, .message, .btn {
-    font-size: 1em;
-}
-
-/* Form fields: full width, more spacing */
-input[type="text"], input[type="password"], input[type="submit"] {
-    width: 100%;
-    font-size: 1em;
-    margin-bottom: 12px;
-    box-sizing: border-box;
-}
-
-/* Table: scrollable and readable */
-table {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    font-size: 0.98em;
-    margin-bottom: 18px;
-}
-th, td {
-    padding: 8px 4px;
-    font-size: 0.98em;
-    text-align: left;
-    min-width: 90px;
-}
-
-/* Responsive buttons: stack vertically */
-.btn {
-    display: block;
-    width: 100%;
-    margin: 7px 0;
-    font-size: 1em;
-    box-sizing: border-box;
-}
-
-/* Message styling */
-.message {
-    font-size: 1em;
-    margin: 10px 0;
-    padding: 8px 10px;
-    text-align: center;
-}
-
-/* Hide box shadow on body background for less clutter */
-body {
-    background: #9b9076 !important;
-}
+.header { text-align: center; margin-bottom: 8px; }
 
 /* Logout link styling */
 .logout-link {
-    color: #b22222 !important; /* Firebrick red */
+    color: #b22222 !important;
     font-weight: bold;
     text-decoration: none;
+    font-size: 0.98em;
 }
-.logout-link:hover,
-.logout-link:focus {
-    color: #ff4444 !important; /* Brighter red on hover */
+.logout-link:hover, .logout-link:focus {
+    color: #ff4444 !important;
     text-decoration: underline;
+}
+
+/* Coloured navigation links (not buttons) */
+.nav-link {
+    color: #2176ae;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0 2px;
+    transition: color 0.2s, text-decoration 0.2s;
+}
+.nav-link:hover,
+.nav-link:focus {
+    color: #12507b;
+    text-decoration: underline;
+}
+
+.nav-link-admin {
+    color: #b22222;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0 2px;
+    transition: color 0.2s, text-decoration 0.2s;
+}
+.nav-link-admin:hover,
+.nav-link-admin:focus {
+    color: #7a1010;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container { padding: 8px; margin: 10px 2px; }
+    table, th, td { font-size: 13px; }
+    .btn { padding: 7px 0; font-size: 12px; }
+    .logo { max-width: 200px; }
+    th.user-header, th.admin-header { font-size: 0.9em; }
+}
+
+/* Responsive tweaks for extra small screens */
+@media (max-width: 480px) {
+    .container { padding: 6px 2px; margin: 8px 1px; }
+    h2 { font-size: 17px; }
+    h3 { font-size: 14px; }
+    .logo { max-width: 200px; }
+}
+/* Small button-link style for navigation actions */
+.btn-link {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 0.98em;
+    font-weight: bold;
+    color: #2176ae;
+    background: #eaf6fb;
+    border: 1.2px solid #2176ae;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    vertical-align: middle;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.btn-link:hover, .btn-link:focus {
+    background: #2176ae;
+    color: #fff;
+    border-color: #2176ae;
+    text-decoration: none;
+}
+
+.btn-link-admin {
+    color: #b22222;
+    background: #fffbea;
+    border: 1.2px solid #b22222;
+}
+.btn-link-admin:hover, .btn-link-admin:focus {
+    background: #b22222;
+    color: #fff;
+    border-color: #b22222;
+}
+textarea {
+    resize: none;
+    min-height: 120px;
 }

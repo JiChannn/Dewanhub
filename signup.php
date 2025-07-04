@@ -37,21 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     <title>Sign Up - DewanHub</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style_mobile.css" media="only screen and (max-width: 600px)">
-    <style>
-        /* Logo styling */
-    .logo {
-        display: block;
-        margin: 0 auto;
-        max-width: 350px; /* Adjust width as needed */
-        height: auto;
-        }
 
-    .header {
-        text-align: center;
-        margin-bottom: 20px;
-        }
-
-    </style>
 </head>
 <body>
 
