@@ -32,7 +32,7 @@ $html = '
         <tr><td style="font-weight:bold;">Start:</td><td>' . htmlspecialchars($event['event_start']) . '</td></tr>
         <tr><td style="font-weight:bold;">End:</td><td>' . htmlspecialchars($event['event_end']) . '</td></tr>
         <tr><td style="font-weight:bold;">Submitted By:</td><td>' . htmlspecialchars($event['username']) . '</td></tr>
-        <tr><td style="font-weight:bold;">Status:</td><td>' . htmlspecialchars(ucfirst($event['status'])) . '</td></tr>
+
     </table>
 ';
 

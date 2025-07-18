@@ -420,3 +420,76 @@ th.admin-header {
         margin: 0.1em 0;
     }
 }
+
+/* Filter form right alignment and compact style */
+.filter-form-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1em;
+}
+
+.filter-form {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.97em;
+    width: auto;
+    margin-bottom: 0;
+}
+.filter-form label {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.filter-form input[type="month"] {
+    padding: 3px 4px;
+    font-size: 0.97em;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    background: #fdf6e3;
+    max-width: 120px;
+}
+.filter-form-inline label {
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: 0.96em;
+}
+.filter-form-inline input[type="month"] {
+    padding: 1px 2px;
+    font-size: 0.96em;
+    border-radius: 3px;
+    border: 1px solid #bbb;
+    background: #fdf6e3;
+    max-width: 80px;
+    height: 24px;
+}
+.filter-form-inline .btn-link,
+.filter-form-inline .btn-link-admin {
+    padding: 1px 6px;
+    font-size: 0.92em;
+    margin: 0;
+    height: 24px;
+    line-height: 20px;
+}
+.filter-form-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    margin: 0 0 0 8px;
+}
+
+.nav-filter-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 0.2em;
+}
+
+h3 {
+    margin-top: 1.2em !important;
+    margin-bottom: 0.7em !important;
+}
+
+table {
+    margin-top: 0 !important;
+}

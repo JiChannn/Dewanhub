@@ -44,7 +44,7 @@ if (!$event) {
         <div class="row"><span class="label">Start:</span> <?= htmlspecialchars($event['event_start']) ?></div>
         <div class="row"><span class="label">End:</span> <?= htmlspecialchars($event['event_end']) ?></div>
         <div class="row"><span class="label">Submitted By:</span> <?= htmlspecialchars($event['username']) ?></div>
-        <div class="row"><span class="label">Status:</span> <?= htmlspecialchars(ucfirst($event['status'])) ?></div>
+
     </div>
 </body>
 </html>
